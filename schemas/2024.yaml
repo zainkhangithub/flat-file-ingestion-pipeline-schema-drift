@@ -1,0 +1,8 @@
+version: "2024"
+
+delimiter: "|"
+
+columns:
+  - fname
+  - lname
+  - zip

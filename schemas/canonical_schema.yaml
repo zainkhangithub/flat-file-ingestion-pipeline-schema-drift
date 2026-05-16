@@ -1,0 +1,13 @@
+required_columns:
+  - first_name
+  - last_name
+  - zip_code
+
+optional_columns:
+  - middle_name
+
+data_types:
+  first_name: string
+  last_name: string
+  zip_code: string
+  middle_name: string
