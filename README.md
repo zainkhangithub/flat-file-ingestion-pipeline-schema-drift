@@ -49,35 +49,35 @@ The system is designed to be:
 
 ## Folder Structure
 
+# flat-file-ingestion-pipeline-schema-drift/
+```
 flat-file-ingestion-pipeline-schema-drift/
 │
-├── raw/ # Input government files
-├── schemas/ # Schema definitions
-│ ├── 2024.yaml
-│ ├── 2025.yaml
-│ └── canonical_schema.yaml
+├── raw/                        # Input government files
+├── schemas/                    # Schema definitions
+│   ├── 2024.yaml
+│   ├── 2025.yaml
+│   └── canonical_schema.yaml
 │
-├── mappings/ # Column mapping rules
-│ ├── 2024_mapping.yaml
-│ ├── 2025_mapping.yaml
+├── mappings/                   # Column mapping rules
+│   ├── 2024_mapping.yaml
+│   └── 2025_mapping.yaml
 │
 ├── pipeline/
-│ ├── context.py
-│ ├── detect_schema.py
-│ ├── transform.py
-│ ├── validate.py
-│ ├── logger.py
-│ └── orchestrator.py
+│   ├── context.py
+│   ├── detect_schema.py
+│   ├── transform.py
+│   ├── validate.py
+│   ├── logger.py
+│   └── orchestrator.py
 │
-├── tests_data/ # Sample datasets for testing
-├── run_tests.py # Automated test runner
-├── main.py # Entry point
+├── tests_data/                 # Sample datasets for testing
+├── run_tests.py                # Automated test runner
+├── main.py                     # Entry point
 │
 └── logs/
-└── pipeline_log.csv # Audit logs
-
-
----
+    └── pipeline_log.csv        # Audit logs
+```
 
 ## Core Components
 
