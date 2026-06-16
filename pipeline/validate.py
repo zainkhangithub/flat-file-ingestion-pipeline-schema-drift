@@ -2,7 +2,7 @@ from pathlib import Path
 import yaml
 
 
-CANONICAL_SCHEMA_PATH = Path("schemas/canonical_schema.yaml")
+CANONICAL_SCHEMA_PATH = Path("schemas/canonical/canonical_schema.yaml")
 
 
 def load_canonical_schema():
