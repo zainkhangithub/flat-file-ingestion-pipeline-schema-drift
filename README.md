@@ -144,11 +144,16 @@ Includes:
 ### Run Main Pipeline
 ```bash
 python main.py
+```
 
-Run Test Suite
+### Run Test Suite
+```bash
 python run_tests.py
+```
 
-Expected output:
+### Expected output:
+```bash
 clean   => NO_DRIFT
 extra   => NON_BREAKING
 missing => BREAKING
+```
