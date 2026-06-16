@@ -48,6 +48,7 @@ The system is designed to be:
 ---
 
 ## Folder Structure
+
 flat-file-ingestion-pipeline-schema-drift/
 │
 ├── raw/ # Input government files
