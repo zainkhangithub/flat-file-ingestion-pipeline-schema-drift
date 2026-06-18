@@ -1,13 +1,8 @@
-from pipeline.orchestrator import run_pipeline
+from pipeline.batch_processor import process_batch
 
+results = process_batch()
 
-result = run_pipeline("raw/tests_data/test_2025_missing_col.txt")
+print("\n=== BATCH SUMMARY ===")
 
-print("\nDRIFT STATUS:")
-print(result["drift_status"])
-
-print("\nMISSING:")
-print(result["missing_cols"])
-
-print("\nNEW:")
-print(result["new_cols"])
+for result in results:
+    print(result)

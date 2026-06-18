@@ -10,3 +10,6 @@ timestamp,file_name,schema_version,row_count,drift_status,missing_columns,new_co
 2026-06-17T00:34:04.411873,raw/tests_data/test_2025_clean.txt,2025,2,NO_DRIFT,,
 2026-06-17T00:34:04.425317,raw/tests_data/test_2025_extra_col.txt,2025,2,NON_BREAKING,,citizenship
 2026-06-17T00:34:04.439666,raw/tests_data/test_2025_missing_col.txt,2025,2,BREAKING,zip_code,
+2026-06-18T23:52:24.122735,incoming\citizens_2025.txt,2025,2,NON_BREAKING,,citizenship
+2026-06-18T23:53:28.548603,incoming\citizens_2025.txt,2025,2,NON_BREAKING,,citizenship
+2026-06-19T00:04:51.337327,incoming\citizens_2025.txt,2025,2,NON_BREAKING,,citizenship
