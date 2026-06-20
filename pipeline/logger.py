@@ -2,37 +2,23 @@ from pathlib import Path
 import pandas as pd
 from datetime import datetime
 
+from pipeline.config import load_config
 
-LOG_FILE = Path("logs/pipeline_log.csv")
+config = load_config()
+
+AUDIT_LOG_FILE = Path(config["logs"]["audit"])
+AUDIT_LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 
-def write_audit_log(
-    file_name,
-    schema_version,
-    row_count,
-    drift_status,
-    missing_cols,
-    new_cols
-):
-    record = {
-        "timestamp": datetime.now().isoformat(),
-        "file_name": file_name,
-        "schema_version": schema_version,
-        "row_count": row_count,
-        "drift_status": drift_status,
-        "missing_columns": ",".join(missing_cols),
-        "new_columns": ",".join(new_cols)
-    }
+def write_audit_log(**record):
+    record["timestamp"] = datetime.now().isoformat()
 
     df_new = pd.DataFrame([record])
 
-    if LOG_FILE.exists() and LOG_FILE.stat().st_size > 0:
-        df_existing = pd.read_csv(LOG_FILE)
-        df_combined = pd.concat(
-            [df_existing, df_new],
-            ignore_index=True
-        )
+    if AUDIT_LOG_FILE.exists() and AUDIT_LOG_FILE.stat().st_size > 0:
+        df_existing = pd.read_csv(AUDIT_LOG_FILE)
+        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
     else:
         df_combined = df_new
 
-    df_combined.to_csv(LOG_FILE, index=False)
+    df_combined.to_csv(AUDIT_LOG_FILE, index=False)

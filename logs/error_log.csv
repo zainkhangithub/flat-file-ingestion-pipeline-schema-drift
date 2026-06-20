@@ -1,2 +1,5 @@
 timestamp,file_name,error_type,error_message
 2026-06-20T12:36:31.670191,incoming\bad_file.txt,SCHEMA_DETECTION_ERROR,No matching schema found for incoming\bad_file.txt
+2026-06-20T13:02:19.244166,incoming\citizens_2025.txt,SYSTEM_ERROR,write_audit_log() got an unexpected keyword argument 'file_name'
+2026-06-20T13:05:13.432614,incoming\bad_file.txt,SCHEMA_DETECTION_ERROR,No matching schema found for incoming\bad_file.txt
+2026-06-20T13:08:33.669482,incoming\missing_column.txt,VALIDATION_ERROR,Missing required columns: ['zip_code']

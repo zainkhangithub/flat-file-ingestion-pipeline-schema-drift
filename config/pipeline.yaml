@@ -1,0 +1,8 @@
+paths:
+  incoming: incoming
+  processed: processed
+  failed: failed
+
+logs:
+  audit: logs/pipeline_log.csv
+  error: logs/error_log.csv

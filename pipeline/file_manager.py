@@ -1,9 +1,12 @@
 from pathlib import Path
 import shutil
 
+from pipeline.config import load_config
 
-PROCESSED_DIR = Path("processed")
-FAILED_DIR = Path("failed")
+config = load_config()
+
+PROCESSED_DIR = Path(config["paths"]["processed"])
+FAILED_DIR = Path(config["paths"]["failed"])
 
 
 def move_to_processed(file_path):

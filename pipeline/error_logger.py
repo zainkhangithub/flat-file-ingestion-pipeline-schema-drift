@@ -2,8 +2,12 @@ from pathlib import Path
 from datetime import datetime
 import pandas as pd
 
+from pipeline.config import load_config
 
-ERROR_LOG_FILE = Path("logs/error_log.csv")
+config = load_config()
+
+ERROR_LOG_FILE = Path(config["logs"]["error"])
+ERROR_LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 
 def write_error_log(

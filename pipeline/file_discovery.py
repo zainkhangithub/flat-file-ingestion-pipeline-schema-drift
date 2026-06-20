@@ -1,14 +1,17 @@
 from pathlib import Path
 
-INCOMING_DIR = Path("incoming")
-PROCESSED_DIR = Path("processed")
-FAILED_DIR = Path("failed")
+from pipeline.config import load_config
+
+config = load_config()
+
+INCOMING_DIR = Path(config["paths"]["incoming"])
+PROCESSED_DIR = Path(config["paths"]["processed"])
+FAILED_DIR = Path(config["paths"]["failed"])
 
 
 def discover_files():
     """
-    Only returns files that are still in incoming/.
-    Ensures idempotent processing.
+    Only returns files that have not already been processed or failed.
     """
 
     processed_files = {f.name for f in PROCESSED_DIR.glob("*.txt")}
