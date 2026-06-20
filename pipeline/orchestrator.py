@@ -10,13 +10,19 @@ from pipeline.validate import (
 )
 from pipeline.logger import write_audit_log
 from pipeline.context import PipelineContext
+from pipeline.exceptions import (
+    SchemaDetectionError,
+    ValidationError
+)
 
 
 def run_pipeline(file_path):
     schema = detect_schema(file_path)
 
     if not schema:
-        raise Exception("Unknown schema detected!")
+        raise SchemaDetectionError(
+            f"No matching schema found for {file_path}"
+        )
 
     df = pd.read_csv(file_path, delimiter=schema["delimiter"])
 
@@ -33,6 +39,11 @@ def run_pipeline(file_path):
     new_cols = detect_new_columns(df_std, canonical_schema)
 
     drift_status = classify_drift(missing_cols, new_cols)
+
+    if drift_status == "BREAKING":
+        raise ValidationError(
+            f"Missing required columns: {missing_cols}"
+        )
 
     # Log
     write_audit_log(
