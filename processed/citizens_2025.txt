@@ -1,0 +1,3 @@
+first_name|last_name|postal_code|middle_name|citizenship
+John|Doe|10001|A|pakistani
+Jane|Smith|10002|B|american

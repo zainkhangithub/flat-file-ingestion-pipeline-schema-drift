@@ -1,0 +1,2 @@
+timestamp,file_name,error_type,error_message
+2026-06-20T12:36:31.670191,incoming\bad_file.txt,SCHEMA_DETECTION_ERROR,No matching schema found for incoming\bad_file.txt
